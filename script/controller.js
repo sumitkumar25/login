@@ -27,10 +27,10 @@ class LoginController {
         this.view.updateInfoBox(0, "sign up failure");
     }
 
-    loginSuccess() {
+    loginSuccess(username) {
         this.view.updateInfoBox(1, "login success");
         window.setTimeout(()=> {
-            window.location.href = this.loginSuccessRedirect;
+            window.location.href = this.loginSuccessRedirect + "?username=" + username;
         }, 2000)
     }
 

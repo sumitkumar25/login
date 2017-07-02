@@ -24,12 +24,12 @@ class LoginStore {
         return true;
     }
 
-    callbackHandler(opState, success, failure) {
+    callbackHandler(opState, success, failure, param) {
         if (opState) {
-            success();
+            success(param);
             return;
         }
-        failure();
+        failure(param);
     }
 
 
@@ -48,7 +48,7 @@ class LoginStore {
             var data = this.getLocalStore();
             for (var i in data) {
                 if (data[i].name == name && data[i].key == password) {
-                    return this.callbackHandler(true, success, failure);
+                    return this.callbackHandler(true, success, failure,name);
                 }
             }
         }
